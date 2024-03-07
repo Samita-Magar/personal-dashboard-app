@@ -1,38 +1,279 @@
-.App {
+:root {
+  --primary-color: #3498db;
+  --widget-background: linear-gradient(to bottom right, hsl(52, 38%, 88%), #ceeba5, #dfe3d3);
+  --widget-text: #070606;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --widget-border-radius: 8px;
+  --widget-padding: 10px;
+  --font-family: 'Arial', sans-serif;
+  --font-size: 16px;
+}
+
+body {
+  background-color: #cecfcf;
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 10px;
+}
+
+header {
+  background-color: #cecfcf;
+  color: rgb(0, 0, 0);
   text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0px;
+  flex: 1;
+}
+
+.widget {
+  box-sizing: border-box;
+  margin: 0px;
+  border-radius: var(--widget-border-radius);
+  box-shadow: var(--box-shadow);
+  width: calc(40% - 20px);
+}
+
+/* Media query for tablets and desktops */
+@media (max-width: 768px) {
+  .widget {
+    width: calc(50% - 20px);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Media query for mobile devices */
+@media (max-width: 384px) {
+  .widget {
+    width: calc(100% - 20px);
+  }
+}
+
+/* NewsWidget.css */
+
+.widget.news-widget {
+ background: var(--widget-background);
+  color: #000000;
+  padding: var(--widget-padding);
+  box-sizing: border-box;
+  margin: 10px;
+  
+}
+
+.category-filter {
+  margin-bottom: 0px;
+}
+
+.category-filter label {
+  margin-right: 10px;
+}
+
+.category-filter select {
+  padding: 10px;
+  width: 50%;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+.news-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.news-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.news-description {
+  margin-bottom: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pagination-button:hover {
+  background-color: #45a049;
+}
+
+/* TaskManager.css */
+
+.task-manager-widget {
+  background: var(--widget-background);
+  color: #000000;
+  padding: var(--widget-padding);
+  width: calc(50% - 20px); /* Adjusted width for half of the container */
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.task-manager-widget div {
+  display: flex;
+}
+
+.task-manager-widget h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.task-manager-widget input {
+  padding: 0.5em;
+  font-size: 1em;
+  width: 70%;
+  box-sizing: border-box;
+  margin-right: 0;
+}
+
+.task-manager-widget button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task-manager-widget button:hover {
+  background-color: #45a049;
+
+}
+
+.task-manager-widget ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px ;
+}
+
+.task-manager-widget li {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 10px;
+}
+
+.task-manager-widget li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-manager-widget li span {
+  flex: 0.5;
+  margin: 10px;
+}
+
+.task-manager-widget li button {
+  background-color: #fdf8f7;
+  color: #f40909;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.task-manager-widget li button:hover {
+  background-color: #d64200;
+  color: #ffffff;
+}
+
+@media (min-width: 769px) {
+  .task-manager-widget {
+    width: calc(25% - 20px); /* Adjusted width for quarter of the container on larger screens */
+    margin: 10px;
+  }
+}
+
+/* WeatherWidget.css */
+
+.widget.weather-widget {
+  background: var(--widget-background);
+  color: var(--widget-text);
+  margin: 0px;
+  border-radius: var(--widget-border-radius);
+  box-shadow: var(--box-shadow);
+  box-sizing: border-box;
+  width: calc(100% - 20px); /* Adjusted width for full-width on mobile */
+}
+
+.weather-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.weather-details img {
+  margin: 10px 0;
+  width: 100px;
+  height: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.weather-details p {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.widget.weather-widget h2 {
+  font-size: 2 em;
+  margin-bottom: 20px;
+}
+
+/* Media query for larger devices */
+@media (min-width: 769px) {
+  .widget.weather-widget {
+    width: calc(30% - 20px);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Media query for larger devices */
+@media (min-width: 769px) {
+  .dashboard {
+    flex-direction: row;
+  }
+
+
+  .widget.weather-widget {
+    width: calc(30% - 20px); /* Adjusted width for smaller size */
+    margin: 10px;
   }
 }

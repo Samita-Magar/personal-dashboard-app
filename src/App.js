@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import WeatherWidget from './components/WeatherWidget';
+import NewsWidget from './components/NewsWidget';
+import TaskManager from './components/TaskManager';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header className="dashboard-header">
+        <h1>My Personal Dashboard</h1>
       </header>
+      <div className="dashboard">
+          <WeatherWidget apiKey="2b4ef22c307ee4526a4bb46699a964a8" location="sydney" />
+        <TaskManager />
+        <NewsWidget apiKey="ae936b8c1b6f4246b4897cb9f284f8a2" country="au" />
+        
+      </div>
     </div>
   );
-}
+};
 
 export default App;
